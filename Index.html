@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>રાજપૂત સમાજ U 25 ક્રિકેટ ટુર્નામેન્ટ દેકાવડા</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <style>
+        :root {
+            --rajput-saffron: #FF6F00;
+            --rajput-gold: #D4AF37;
+            --rajput-maroon: #800000;
+            --dark-bg: #1A0F0A;
+            --card-bg: #2A1810;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--rajput-maroon), #4A0000);
+            border-bottom: 4px solid var(--rajput-gold);
+            text-align: center;
+            padding: 30px 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            color: var(--rajput-gold);
+            margin: 0;
+            font-size: 26px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        header p {
+            color: #FFD700;
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 15px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--rajput-gold);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: var(--rajput-saffron);
+            border-bottom: 2px solid var(--rajput-gold);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-item {
+            background: rgba(0,0,0,0.3);
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--rajput-saffron);
+        }
+
+        .info-item strong {
+            color: var(--rajput-gold);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        .badge {
+            background-color: var(--rajput-saffron);
+            color: black;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--rajput-gold);
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--rajput-gold);
+            border-radius: 6px;
+            background-color: #1A100C;
+            color: white;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--rajput-saffron);
+            box-shadow: 0 0 8px rgba(255, 111, 0, 0.5);
+        }
+
+        /* Jersey Live Preview */
+        .jersey-preview {
+            background: radial-gradient(circle, #3A2012 0%, #1A0F0A 100%);
+            border: 2px dashed var(--rajput-gold);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .jersey-svg {
+            width: 180px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        /* Payment QR Section */
+        .qr-wrapper {
+            text-align: center;
+            background: #201008;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--rajput-gold);
+            margin-bottom: 15px;
+        }
+
+        .qr-container {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        #qrCanvas {
+            width: 200px !important;
+            height: 200px !important;
+        }
+
+        .upi-id-box {
+            background-color: #110804;
+            color: var(--rajput-gold);
+            padding: 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 8px;
+            font-size: 14px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: inline-block;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .notice {
+            background-color: var(--rajput-maroon);
+            color: #FFD700;
+            padding: 12px;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 15px;
+            border: 1px dashed var(--rajput-gold);
+        }
+
+        .free-banner {
+            background: linear-gradient(135deg, #FF6F00, #D4AF37);
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(255, 111, 0, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--rajput-gold);
+            font-size: 14px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>રાજપૂત સમાજ U 25 ક્રિકેટ ટુર્નામેન્ટ દેકાવડા</h1>
+        <p>🚩 ઓનલી રાજપૂત સમાજ 🚩</p>
+    </header>
+
+    <div class="container">
+
+        <div class="free-banner">
+            👕 બધાજ પ્લેયર માટે T-Shirt ફ્રી (Free)!
+        </div>
+
+        <!-- Tournament Details -->
+        <div class="card">
+            <h2>ટુર્નામેન્ટ વિગત</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>ગ્રાઉન્ડ:</strong>
+                    દેકાવડા હાઈવે
+                </div>
+                <div class="info-item">
+                    <strong>પ્લેયર ફી:</strong>
+                    ₹ 600
+                </div>
+                <div class="info-item">
+                    <strong>કેપ્ટન ફી:</strong>
+                    ₹ 3500
+                </div>
+                <div class="info-item">
+                    <strong>ઉંમર મર્યાદા:</strong>
+                    U-25 (જન્મ વર્ષ 2001 કે પછીનું)
+                </div>
+            </div>
+            <div class="notice">
+                ☕ 🥣 ચા નાસ્તો + પાણી ની સુવિધા ઉપલબ્ધ રહેશે ગ્રાઉંડ માં.
+            </div>
+        </div>
+
+        <!-- Prizes -->
+        <div class="card">
+            <h2>ઈનામો (Prizes & Trophies)</h2>
+            <ul>
+                <li><span>વિનર ટીમ (Winning Team)</span> <span class="badge">Prize Money + Trophy</span></li>
+                <li><span>રનર અપ (Runner Up)</span> <span class="badge">Prize Money + Trophy</span></li>
+                <li><span>મૅન ઓફ ધી મેચ (Man of the Match)</span> <span class="badge">Medal 🥇</span></li>
+                <li><span>બેસ્ટ બોલર (Best Bowler)</span> <span class="badge">Trophy</span></li>
+                <li><span>બેસ્ટ બેટ્સમેન (Best Batsman)</span> <span class="badge">Trophy</span></li>
+                <li><span>મૅન ઓફ ધી સિરીઝ (Man of the Series)</span> <span class="badge">Trophy + 7070 T-Shirt</span></li>
+            </ul>
+            <p style="text-align: center; color: #FFD700; margin-top: 15px; font-size: 14px;">
+                📺 સેમિફાઇનલ + ફાઇનલ મેચ લાઇવ પ્રસારિત કરવામાં આવશે.
+            </p>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="card">
+            <h2>પ્લેયર રજિસ્ટ્રેશન ફોર્મ</h2>
+            <form id="regForm">
+                
+                <div class="form-group">
+                    <label for="pName">પ્લેયરનું નામ (Player Name):</label>
+                    <input type="text" id="pName" placeholder="તમારું પૂરૂં નામ લખો" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vName">ગામનું નામ (Village Name):</label>
+                    <input type="text" id="vName" placeholder="તમારા ગામનું નામ" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bYear">જન્મ તારીખ (Birth Date - Last Year 2001):</label>
+                    <input type="date" id="bYear" max="2001-12-31" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mNo">મોબાઈલ નંબર (CricHeroes વાળો):</label>
+                    <input type="tel" id="mNo" placeholder="10 અંકનો નંબર" pattern="[0-9]{10}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tSize">T-Shirt સાઈઝ પસંદ કરો:</label>
+                    <select id="tSize" required>
+                        <option value="">-- સાઈઝ પસંદ કરો --</option>
+                        <option value="S">S (Small)</option>
+                        <option value="M">M (Medium)</option>
+                        <option value="L">L (Large)</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jName">T-Shirt પાછળ લખવાનું નામ:</label>
+                    <input type="text" id="jName" placeholder="જેમ કે: YUVRAJ" oninput="updateJerseyPreview()" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="jNumber">T-Shirt પાછળનો નંબર:</label>
+                    <input type="number" id="jNumber" placeholder="જેમ કે: 07" min="0" max="99" oninput="updateJerseyPreview()" required>
+                </div>
+
+                <!-- Live T-Shirt Graphic Preview -->
+                <div class="jersey-preview">
+                    <label style="margin-bottom: 10px;">👕 T-Shirt લાઈવ પ્રિવ્યૂ (Live Preview):</label>
+                    <svg class="jersey-svg" viewBox="0 0 200 220">
+                        <path d="M 40,40 L 70,10 L 130,10 L 160,40 L 190,60 L 175,100 L 150,85 L 150,200 L 50,200 L 50,85 L 25,100 L 10,60 Z" fill="#FF6F00" stroke="#D4AF37" stroke-width="4"/>
+                        <path d="M 70,10 C 80,30 120,30 130,10" fill="none" stroke="#800000" stroke-width="5"/>
+                        <rect x="50" y="85" width="100" height="8" fill="#800000"/>
+                        <text id="svgJerseyName" x="100" y="115" fill="#FFFFFF" font-size="16" font-weight="bold" text-anchor="middle">YOUR NAME</text>
+                        <text id="svgJerseyNum" x="100" y="170" fill="#D4AF37" font-size="45" font-weight="bold" text-anchor="middle">00</text>
+                    </svg>
+                </div>
+
+                <div class="form-group">
+                    <label for="role">રમવાનો પ્રકાર (Select Role):</label>
+                    <select id="role" required>
+                        <option value="">-- પસંદ કરો --</option>
+                        <option value="All Rounder">All Rounder</option>
+                        <option value="Batsman">Batsman</option>
+                        <option value="Bowler">Bowler</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="regType">રજિસ્ટ્રેશન પ્રકાર:</label>
+                    <select id="regType" onchange="generateQR()" required>
+                        <option value="Player" data-fee="600">Player (₹ 600)</option>
+                        <option value="Captain" data-fee="3500">Captain (₹ 3500)</option>
+                    </select>
+                </div>
+
+                <!-- QR Payment Box -->
+                <div class="qr-wrapper">
+                    <label style="color:#FFD700;">💳 પેમેન્ટ કરવા માટે QR કોડ સ્કેન કરો:</label>
+                    <div class="qr-container">
+                        <canvas id="qrCanvas"></canvas>
+                    </div>
+                    <div class="upi-id-box">
+                        UPI ID: yjsolanki2526@oksbi
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="utr">UTR / UPI ટ્રાન્ઝેક્શન નંબર (12 Digit):</label>
+                    <input type="text" id="utr" placeholder="પેમેન્ટ કર્યા પછીનો UTR નંબર" maxlength="12" required>
+                </div>
+
+                <button type="button" onclick="sendToWhatsApp()" class="btn-submit">
+                    📲 રજીસ્ટ્રેશન સબમિટ કરો (WhatsApp)
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>🚩 આયોજક: યુવરાજસિંહ આબાસણા (8320651288) 🚩</p>
+    </footer>
+
+    <script>
+        function updateJerseyPreview() {
+            var name = document.getElementById('jName').value.toUpperCase();
+            var num = document.getElementById('jNumber').value;
+            
+            document.getElementById('svgJerseyName').textContent = name || "YOUR NAME";
+            document.getElementById('svgJerseyNum').textContent = num || "00";
+        }
+
+        function generateQR() {
+            var regSelect = document.getElementById('regType');
+            var fee = regSelect.options[regSelect.selectedIndex].getAttribute('data-fee');
+            var upiUrl = "upi://pay?pa=yjsolanki2526@oksbi&pn=YUVRAJSINH&am=" + fee + "&cu=INR";
+            
+            var canvas = document.getElementById('qrCanvas');
+            QRCode.toCanvas(canvas, upiUrl, { width: 200, margin: 1 }, function (error) {
+                if (error) console.error(error);
+            });
+        }
+
+        window.onload = function() {
+            generateQR();
+        };
+
+        function sendToWhatsApp() {
+            var name = document.getElementById('pName').value;
+            var village = document.getElementById('vName').value;
+            var dob = document.getElementById('bYear').value;
+            var mobile = document.getElementById('mNo').value;
+            var tSize = document.getElementById('tSize').value;
+            var jName = document.getElementById('jName').value;
+            var jNum = document.getElementById('jNumber').value;
+            var role = document.getElementById('role').value;
+            var regType = document.getElementById('regType').value;
+            var utr = document.getElementById('utr').value;
+
+            if(!name || !village || !dob || !mobile || !tSize || !jName || !jNum || !role || !utr) {
+                alert("મહેરબાની કરીને બધી વિગતો ભરો!");
+                return;
+            }
+
+            var message = "*રાજપૂત સમાજ U 25 ક્રિકેટ ટુર્નામેન્ટ દેકાવડા રજીસ્ટ્રેશન*\n\n" +
+                "👤 *નામ:* " + name + "\n" +
+                "🏡 *ગામ:* " + village + "\n" +
+                "📅 *જન્મ તારીખ:* " + dob + "\n" +
+                "📱 *મોબાઈલ નંબર (CricHeroes):* " + mobile + "\n" +
+                "👕 *T-Shirt સાઈઝ:* " + tSize + "\n" +
+                "🏷️ *T-Shirt પાછળનું નામ:* " + jName + "\n" +
+                "🔢 *T-Shirt નંબર:* " + jNum + "\n" +
+                "🏏 *રોલ:* " + role + "\n" +
+                "🏷️ *પ્રકાર:* " + regType + "\n" +
+                "💳 *UTR / Transaction No:* " + utr;
+
+            var encodedMessage = encodeURIComponent(message);
+            var whatsappURL = "https://wa.me/918320651288?text=" + encodedMessage;
+
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
